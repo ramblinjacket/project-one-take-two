@@ -1,0 +1,24 @@
+
+body {
+	
+}
+
+button {
+    
+}
+
+@media only screen and (max-width:900px) {
+    body {
+    
+    }
+}
+@media only screen and (max-width: 750px) {
+    body {
+        
+    }
+
+@media only screen and (max-width: 480px) {
+    body {
+        
+    }
+
