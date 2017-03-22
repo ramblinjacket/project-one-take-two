@@ -28,17 +28,49 @@ $("#save_party").on("click", function(event){
     })
 })
 
+
+$("#join_party").on("click", function(event){
+    event.preventDefault();
+    console.log('Try join party');
+    database.ref('/parties/-KfnSD479hGVpZ_vEFPD/attendees').push({
+      name: "Jameel"
+
+      
+    })
+
+    // partyname = $("#partyname").val().trim();
+    // longitude = $("#partylongitude").val().trim();
+    // latitude = $("#partylatitude").val().trim();
+
+    // database.ref('/parties').push({
+    //   partyname: partyname,
+    //   longitude: longitude,
+    //   latitude: latitude
+    // })
+})
+
 var location = {};
 
 database.ref('/parties').on("child_added", function(getmarker){
   var markerlongitude = parseFloat(getmarker.val().longitude);
   var markerlatitude = parseFloat(getmarker.val().latitude);
+  var party = getmarker.val().partyname;
+  console.log(getmarker); 
   console.log("The longitude is: " + markerlongitude); 
   console.log("The latitude is: " + markerlatitude); 
+  console.log("The party name is: " + party);
   location = {lat: markerlatitude , lng: markerlongitude};
   console.log(location);
-  addMarkerWithTimeout(location, 500);
+  //addMarkerWithTimeout(location, 500);
+
+  var marker = new google.maps.Marker({
+          position: location,
+          map: map,
+          party: party 
+        });
 })
+
+  
 
 var map;
 var markersArray = [];
@@ -58,6 +90,7 @@ function initialize() {
 	zoom: 14,
 	center: {lat: 33.776140, lng:-84.389477} //home
   };
+
 
 
 
@@ -101,9 +134,15 @@ var contentString = '<div style="font-family: Roboto,Arial,sans-serif; line-heig
   });
 */
 
+google.maps.event.addDomListener(window, 'load', initialize);
+
+map.addListener('click', function(getpin){
+    console.log(getpin.latLng);
+});
+
+
 
 };
-google.maps.event.addDomListener(window, 'load', initialize);
 
 
 // function dropMarkers() {
