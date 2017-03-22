@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 var config = {
     apiKey: "AIzaSyDEfuehrA2ZBZvZFFFdKueQVh0ZK-VDTrQ",
     authDomain: "projectonetake2.firebaseapp.com",
@@ -5,9 +7,27 @@ var config = {
     storageBucket: "projectonetake2.appspot.com",
     messagingSenderId: "44553077304"
   };
-  firebase.initializeApp(config);
+firebase.initializeApp(config);
 
 var database = firebase.database();
+
+var partyname = "";
+var longitude = "";
+var latitude = "";
+
+$("#save_party").on("click", function(event){
+    event.preventDefault();
+    partyname = $("#partyname").val().trim();
+    longitude = $("#partylongitude").val().trim();
+    latitude = $("#partylatitude").val().trim();
+
+    database.ref('/parties').push({
+      partyname: partyname,
+      longitude: longitude,
+      latitude: latitude
+    })
+})
+
 
 var map;
 var markersArray = [];
@@ -49,7 +69,7 @@ var contentString = '<div style="font-family: Roboto,Arial,sans-serif; line-heig
             '</div>' + 
             '</div>';
 
-*/
+
   var infowindow = new google.maps.InfoWindow({
     content: contentString,
   position: {lat: 33.776140, lng:-84.389477}//Home
@@ -67,7 +87,7 @@ var contentString = '<div style="font-family: Roboto,Arial,sans-serif; line-heig
   marker.addListener('rightclick', function(){
   map.setZoom(map.getZoom() - 1);
   });
-
+*/
 
 
 };
@@ -224,3 +244,4 @@ function PanControl(controlDiv){
   
 }
 
+});

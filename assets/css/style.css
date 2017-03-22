@@ -136,3 +136,9 @@ nav{
 }
 
 =============================================
+
+#partyname{
+	padding-top: 200px;
+	display:flex;
+	width:200px;
+}
