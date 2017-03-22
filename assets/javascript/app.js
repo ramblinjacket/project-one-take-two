@@ -28,19 +28,31 @@ $("#save_party").on("click", function(event){
     })
 })
 
+var location = {};
+
+database.ref('/parties').on("child_added", function(getmarker){
+  var markerlongitude = parseFloat(getmarker.val().longitude);
+  var markerlatitude = parseFloat(getmarker.val().latitude);
+  console.log("The longitude is: " + markerlongitude); 
+  console.log("The latitude is: " + markerlatitude); 
+  location = {lat: markerlatitude , lng: markerlongitude};
+  console.log(location);
+  addMarkerWithTimeout(location, 500);
+})
 
 var map;
 var markersArray = [];
-var loactionArray = [
-  {lat: 33.776140, lng:-84.389477}, //Home
-  {lat: 33.786235, lng:-84.384155},//Opera Night Club
-  {lat: 33.788566, lng:-84.368405},//Loca Luna
-  {lat: 33.772704, lng:-84.385581},//The Fox Theatre
-  {lat: 33.758748, lng: -84.391365},//The Tabernacle
-  {lat: 33.789235, lng: -84.372752},//Atlanta Botanical Garden
-  {lat: 33.781006, lng: -84.392771},//McCamish Pivilion
-  {lat: 33.772557, lng: -84.392878}//Bobby Dodd Stadium
-];
+// var loactionArray = [
+//   {lat: 33.776140, lng:-84.389477}, //Home
+//   {lat: 33.786235, lng:-84.384155},//Opera Night Club
+//   {lat: 33.788566, lng:-84.368405},//Loca Luna
+//   {lat: 33.772704, lng:-84.385581},//The Fox Theatre
+//   {lat: 33.758748, lng: -84.391365},//The Tabernacle
+//   {lat: 33.789235, lng: -84.372752},//Atlanta Botanical Garden
+//   {lat: 33.781006, lng: -84.392771},//McCamish Pivilion
+//   {lat: 33.772557, lng: -84.392878}//Bobby Dodd Stadium
+// ];
+
 function initialize() {
   var mapOptions = {
 	zoom: 14,
@@ -93,12 +105,15 @@ var contentString = '<div style="font-family: Roboto,Arial,sans-serif; line-heig
 };
 google.maps.event.addDomListener(window, 'load', initialize);
 
-function dropMarkers() {
-  clearMarkers();
-  for (var i = 0; i < loactionArray.length; i++) {
-    addMarkerWithTimeout(loactionArray[i], i * 500);
-  }
-};
+
+// function dropMarkers() {
+//   clearMarkers();
+//   for (var i = 0; i < loactionArray.length; i++) {
+//     addMarkerWithTimeout(loactionArray[i], i * 500);
+//     console.log(loactionArray[i]);
+//   }
+// };
+
 
 function clearMarkers() {
   for (var i = 0; i < markersArray.length; i++) {
@@ -141,7 +156,7 @@ function DropControl(controlDiv) {
   controlUI.appendChild(controlText);
 
   // controlUI.addEventListener('click', function() {
-	  dropMarkers();
+	// dropMarkers();
   // });
 };
 
