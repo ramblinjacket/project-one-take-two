@@ -1,3 +1,5 @@
+var partyIDtoJoin;
+
 $(document).ready(function(){
 
 var config = {
@@ -32,7 +34,7 @@ var databaseref;
 
 $("#join_party").on("click", function(event){
     event.preventDefault();
-    partyID = $("#partyID").val().trim();
+    partyID = partyIDtoJoin;
     personsName = $("#attendee").val().trim();
     databaseref = "/parties/" + partyID + "/attendees"
     console.log('Try join party');
@@ -59,6 +61,8 @@ database.ref('/parties').on("child_added", function(getmarker){
   var markerlongitude = parseFloat(getmarker.val().longitude);
   var markerlatitude = parseFloat(getmarker.val().latitude);
   var party = getmarker.val().partyname;
+  var id =getmarker.key;
+  console.log("KEY:", getmarker.key);
   //***
   var test1 = getmarker.val();
   var test2 = Object.keys(test1);
@@ -79,12 +83,14 @@ database.ref('/parties').on("child_added", function(getmarker){
   var marker = new google.maps.Marker({
           position: location,
           map: map,
-          party: party 
+          party: party,
+          key: id 
         });
   marker.addListener('click', function(getpin){
     //console.log(marker.getPosition());
     console.log(marker.party);
     console.log(getpin);
+    partyIDtoJoin = marker.key;
 
   });
 })
@@ -93,6 +99,9 @@ database.ref('/parties').on("child_added", function(getmarker){
   var attendee = getattendees.val();
   console.log("Attendee equals: ");
   console.log(attendee);
+  Object.keys(attendee).forEach(function(person) {
+    console.log(attendee[person].name);
+  });
   //console.log(attendeeID);
 });
   
@@ -322,3 +331,20 @@ function PanControl(controlDiv){
 }
 
 });
+
+var x = document.getElementById("coordinates");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+
+    } else {
+        //x.innerHTML = "Geolocation is not supported by this browser.";
+        console.log('error');
+    }
+}
+function showPosition(position) {
+    //x.innerHTML = "Latitude: " + position.coords.latitude + 
+    //"<br>Longitude: " + position.coords.longitude; 
+    console.log(position.coords);
+    console.log("got here");
+}
