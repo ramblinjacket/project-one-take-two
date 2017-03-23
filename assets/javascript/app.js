@@ -28,12 +28,16 @@ $("#save_party").on("click", function(event){
     })
 })
 
+var databaseref;
 
 $("#join_party").on("click", function(event){
     event.preventDefault();
+    partyID = $("#partyID").val().trim();
+    personsName = $("#attendee").val().trim();
+    databaseref = "/parties/" + partyID + "/attendees"
     console.log('Try join party');
-    database.ref('/parties/-KfnSD479hGVpZ_vEFPD/attendees').push({
-      name: "Jameel"
+    database.ref(databaseref).push({
+      name: personsName
 
       
     })
@@ -55,6 +59,15 @@ database.ref('/parties').on("child_added", function(getmarker){
   var markerlongitude = parseFloat(getmarker.val().longitude);
   var markerlatitude = parseFloat(getmarker.val().latitude);
   var party = getmarker.val().partyname;
+  //***
+  var test1 = getmarker.val();
+  var test2 = Object.keys(test1);
+  console.log("This is test1:");
+  console.log(test1);
+  console.log("This is test2:");
+  console.log(test2);
+
+  //***
   console.log(getmarker); 
   console.log("The longitude is: " + markerlongitude); 
   console.log("The latitude is: " + markerlatitude); 
@@ -68,8 +81,20 @@ database.ref('/parties').on("child_added", function(getmarker){
           map: map,
           party: party 
         });
+  marker.addListener('click', function(getpin){
+    //console.log(marker.getPosition());
+    console.log(marker.party);
+    console.log(getpin);
+
+  });
 })
 
+  database.ref("parties/-KfnSPH0AXJ7xoJEEKV5/attendees").on("value", function(getattendees){
+  var attendee = getattendees.val();
+  console.log("Attendee equals: ");
+  console.log(attendee);
+  //console.log(attendeeID);
+});
   
 
 var map;
@@ -136,9 +161,7 @@ var contentString = '<div style="font-family: Roboto,Arial,sans-serif; line-heig
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-map.addListener('click', function(getpin){
-    console.log(getpin.latLng);
-});
+
 
 
 
