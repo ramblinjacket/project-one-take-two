@@ -1,3 +1,6 @@
+var partyLatitude;
+var partyLongitude;
+
 var partyIDtoJoin;
 
 $(document).ready(function(){
@@ -20,13 +23,13 @@ var latitude = "";
 $("#save_party").on("click", function(event){
     event.preventDefault();
     partyname = $("#partyname").val().trim();
-    longitude = $("#partylongitude").val().trim();
-    latitude = $("#partylatitude").val().trim();
+    // longitude = $("#partylongitude").val().trim();
+    // latitude = $("#partylatitude").val().trim();
 
     database.ref('/parties').push({
       partyname: partyname,
-      longitude: longitude,
-      latitude: latitude
+      longitude: partyLongitude,
+      latitude: partyLatitude
     })
 })
 
@@ -343,8 +346,10 @@ function getLocation() {
     }
 }
 function showPosition(position) {
-    //x.innerHTML = "Latitude: " + position.coords.latitude + 
-    //"<br>Longitude: " + position.coords.longitude; 
+    partyLatitude = position.coords.latitude;
+    partyLongitude = position.coords.longitude; 
     console.log(position.coords);
     console.log("got here");
 }
+
+getLocation();
