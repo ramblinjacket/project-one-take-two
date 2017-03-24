@@ -6,7 +6,7 @@ var partyIDtoJoin;
          FB.ui(
             {
             method: 'share',
-            href: 'https://developers.facebook.com/docs/'
+            href: 'https://powerful-thicket-87322.herokuapp.com/'
         }, function(response){});
     }
 
@@ -23,6 +23,7 @@ $(document).ready(function(){
     $("#facebook_button").on("click", function() {
         postComment();
     });
+
     (function(d, s, id){
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {return;}
