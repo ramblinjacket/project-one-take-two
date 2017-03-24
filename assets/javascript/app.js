@@ -2,8 +2,35 @@ var partyLatitude;
 var partyLongitude;
 
 var partyIDtoJoin;
+    function postComment() {
+         FB.ui(
+            {
+            method: 'share',
+            href: 'https://developers.facebook.com/docs/'
+        }, function(response){});
+    }
 
 $(document).ready(function(){
+
+  window.fbAsyncInit = function() {
+    FB.init({
+        appId      : '139005159958824',
+        xfbml      : true,
+        version    : 'v2.8'
+        });
+    };
+
+    $("#facebook_button").on("click", function() {
+        postComment();
+    });
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk')); 
+
 
 var config = {
     apiKey: "AIzaSyDEfuehrA2ZBZvZFFFdKueQVh0ZK-VDTrQ",
@@ -90,25 +117,30 @@ database.ref('/parties').on("child_added", function(getmarker){
           key: id 
         });
   marker.addListener('click', function(getpin){
+    $("#partyAttendees").html("");
     //console.log(marker.getPosition());
     console.log(marker.party);
     console.log(getpin);
     partyIDtoJoin = marker.key;
 
-  });
-})
-
-  database.ref("parties/-KfnSPH0AXJ7xoJEEKV5/attendees").on("value", function(getattendees){
+      database.ref("parties/"+partyIDtoJoin+"/attendees").on("value", function(getattendees){
   var attendee = getattendees.val();
   console.log("Attendee equals: ");
   console.log(attendee);
   Object.keys(attendee).forEach(function(person) {
     console.log(attendee[person].name);
+
+    $("#partyAttendees").append("<tr><td>" + attendee[person].name + "</td></tr>");
+
   });
+
+  });
+})
+
+
   //console.log(attendeeID);
 });
-  
-
+   
 var map;
 var markersArray = [];
 // var loactionArray = [
@@ -179,7 +211,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 };
 
-
+ 
 // function dropMarkers() {
 //   clearMarkers();
 //   for (var i = 0; i < loactionArray.length; i++) {

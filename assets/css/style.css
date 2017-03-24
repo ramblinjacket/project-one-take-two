@@ -111,12 +111,13 @@ nav{
 	padding-top: 50px;
 	font-size: 20px;
 }
-#button_location{
+#save_party{
 	margin-left: 300px;
 	margin-top: 40px;
 	background-color: #CB2027;
 	color: #ffffff;
 	font-size: 30px;
+
 
 }
 #facebook_button{
@@ -137,8 +138,12 @@ nav{
 
 =============================================
 
-#partyname{
+#personsName{
 	padding-top: 200px;
 	display:flex;
 	width:200px;
+}
+#partyAttendees{
+	display: flex;
+	width: 100%;	
 }
