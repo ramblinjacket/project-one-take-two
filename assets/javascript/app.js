@@ -51,16 +51,23 @@ var latitude = "";
 $("#save_party").on("click", function(event){
     event.preventDefault();
     partyname = $("#partyname").val().trim();
+    if (partyname === "") {
+      alert("Please enter party name");
+    } 
+    else {
+        personsName = $("#attendee").val().trim();
+
+        database.ref('/parties').push({
+        partyname: partyname,
+        longitude: partyLongitude,
+        latitude: partyLatitude,
+        organizer: personsName
+      })
+    }
     // longitude = $("#partylongitude").val().trim();
     // latitude = $("#partylatitude").val().trim();
-    personsName = $("#attendee").val().trim();
+    
 
-    database.ref('/parties').push({
-      partyname: partyname,
-      longitude: partyLongitude,
-      latitude: partyLatitude,
-      organizer: personsName
-    })
 })
 
 var databaseref;
@@ -117,7 +124,9 @@ database.ref('/parties').on("child_added", function(getmarker){
           position: location,
           map: map,
           party: party,
-          key: id 
+          key: id,
+          label: party,
+          animation: google.maps.Animation.DROP
         });
   marker.addListener('click', function(getpin){
     $("#partyAttendees").html("");
