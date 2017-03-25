@@ -14,7 +14,7 @@ var partyIDtoJoin;
             url: "https://swarae.homuncul.us/profile",
             method: 'GET'
             }).done(function(response) {
-                console.log(JSON.parse(decodeEntities(response)));
+                console.log(response);
             });
 
       };
