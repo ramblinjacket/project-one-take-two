@@ -6,7 +6,7 @@ var partyIDtoJoin;
          FB.ui(
             {
             method: 'share',
-            href: 'https://powerful-thicket-87322.herokuapp.com/'
+            href: 'https://swarae.homuncul.us/'
         }, function(response){});
     }
     function getFBUser () {    
@@ -27,13 +27,14 @@ var partyIDtoJoin;
 }
 
 $(document).ready(function(){
-
+  
   window.fbAsyncInit = function() {
     FB.init({
         appId      : '139005159958824',
         xfbml      : true,
         version    : 'v2.8'
         });
+    getFBUser();
     };
 
     $("#facebook_button").on("click", function() {
