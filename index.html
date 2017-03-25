@@ -1,123 +1,105 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-     <!--Facebook OG MetaTags-->
-    <meta property="og:image" content="http://swarae.homuncul.us/assets/media/logo.jpg"/>
-    <meta property="og:title" content="The Party Site"/>
-    <meta property="og:url" content="https://swarae.homuncul.us/"/>
-    <meta property="og:site_name" content="swa~rae"/>
-    <meta property="og:type" content="blog"/>
-
-
-    <!--CSS-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"></link>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link> 
-    <link rel="stylesheet" href=".\assets\css\style.css"></link>
-
-    <!--javascript-->
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyC599f68SaIgWn6SJ-dpL0QK4VS4C1CRyA
-"></script>
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
-    <script type="text/javascript" src=".\assets\javascript\app.js"></script>
-    
-    <!--Meta Tags-->
-    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-
-    <!--Additional Header Information   -->
-    <title></title>
-</head>
-
-<body>
-    
-    <div class="container">
-        <nav class="nav nav-tabs" id="mynavbar">
-            <div id="mylogo">
-            <img src="assets/media/logo.jpg" width="88px" height="88px" alt="#"></div>
-            <div id="myappname">
-                <h1>swa~rae</h1>
-            </div>
+    <head>
+        <!--Facebook OG MetaTags-->
+        <meta property="og:image" content="http://swarae.homuncul.us/assets/media/logo.jpg"/>
+        <meta property="og:title" content="The Party Site"/>
+        <meta property="og:url" content="https://swarae.homuncul.us/"/>
+        <meta property="og:site_name" content="swa~rae"/>
+        <meta property="og:type" content="blog"/>
+        <!--CSS-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"></link>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+        <link rel="stylesheet" href=".\assets\css\style.css"></link>
+        <!--javascript-->
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyC599f68SaIgWn6SJ-dpL0QK4VS4C1CRyA
+        "></script>
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+        <script type="text/javascript" src=".\assets\javascript\app.js"></script>
         
-        </nav>
-    </div>
-
-    <div class="container mainContent">
-        <div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="map_canvas"></div>
+        <!--Meta Tags-->
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <!--Additional Header Information   -->
+        <title></title>
+    </head>
+    <body>
+        
+        <div class="container">
+            <nav class="nav nav-tabs" id="mynavbar">
+                <div id="mylogo">
+                <img src="assets/media/logo.jpg" width="88px" height="88px" alt="#"></div>
+                <div id="myappname">
+                    <h1>swa~rae</h1>
                 </div>
-            </div>
-            <div class="row" id="choose">
-                <div class="col-md-12">
-                    <p>Click A Pin To Join A Party<br>
-                    OR<br>
-                    Start Your Own Event Below.
-                    </p>
-                </div>
-            </div>
-
-                        
-            <div class="row">
-               
-                    <input class="form-control" id="partyname" type="text" placeholder="Party Name" />    
-                    </div>
-                    <!-- <div class="form-group">
-                    <label for="partylongitude">Party Longitude:</label>
-                    <input class="form-control" id="partylongitude" type="number"/>    
-                    </div>
-                    <div class="form-group">
-                    <label for="partylatitude">Party Latitude:</label>
-                    <input class="form-control" id="partylatitude" type="number"/>    
-                    </div> -->
-                                    
-                </form>
-                <div class="col-md-12" id="mybutton">
-                    <button class="btn btn-lg btn-default" id="save_party">Start A Party<i class="glyphicon glyphicon-circle-arrow-right" id="glyphi_arrow"></i></button>
-                </div>
-                 <div class="col-md-12" id="mybutton">
-                    <button class="btn btn-lg btn-default" id="facebook_button">Share on Facebook<i class="glyphicon glyphicon-circle-arrow-right" id="glyphi_arrow"></i></button>
-                </div>           
                 
-                            <div class="panel panel-default" id="main_organizer">
-                            <div class="panel-heading" id="organizer"><h4>Organizer</h4></div>
-                            <div class="panel-body">
-                            <table class="table table-striped" >
-                                    <thread>
-                                        <tr>
-                                            <th id="org_attendees">Attendees</th>                            
-                                        </tr>
-                                    </thread>
-                                    <tbody id="partyAttendees">
-                                    
-                                    </tbody>
-                                </table>
-                                </div>
-                            </div>
-
-
-
-
-            </div>
-                <!-- <div class="col-md-12" id="facebook_button">
-                    <button class="btn btn-lg btn-default" id="save_party">Share The Party<i class="glyphicon glyphicon-circle-arrow-right" id="glyphi_arrow"></i></button>
-                    
-                </div>           -->         
-
-
-
+            </nav>
         </div>
-
+        <div class="container mainContent">
+            <div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="map_canvas"></div>
+                    </div>
+                </div>
+                <div class="row party-join" id="choose">
+                    <div class="col-md-12">
+                        <p>Click A Pin To Join A Party<br>
+                            OR<br>
+                            Start Your Own Event Below.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="row party-join">
                     
-    
+                    <input class="form-control" id="partyname" type="text" placeholder="Party Name" />
+                </div>
+                <!-- <div class="form-group">
+                    <label for="partylongitude">Party Longitude:</label>
+                    <input class="form-control" id="partylongitude" type="number"/>
+                </div>
+                <div class="form-group">
+                    <label for="partylatitude">Party Latitude:</label>
+                    <input class="form-control" id="partylatitude" type="number"/>
+                </div> -->
+                
+            </form>
+            <div class="col-md-12 party-join" id="mybutton">
+                <button class="btn btn-lg btn-default" id="save_party">Start A Party<i class="glyphicon glyphicon-circle-arrow-right" id="glyphi_arrow"></i></button>
+            </div>
+            <!-- STEP 2-->
+            <div class="col-md-12 party-view" id="fbshare">
+                <button class="btn btn-lg btn-default" id="facebook_button">Share on Facebook<i class="glyphicon glyphicon-circle-arrow-right" id="glyphi_arrow"></i></button>
+            </div>
             
+            <div class="panel panel-default party-view" id="main_organizer">
+                <div class="panel-heading" ><h4 id="organizer">Organizer</h4></div>
+                <div class="panel-body">
+                    <table class="table table-striped" >
+                        <thread>
+                            <tr>
+                                <th id="org_attendees">Attendees</th>
+                            </tr>
+                        </thread>
+                        <tbody id="partyAttendees">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-md-12" id="facebook_button">
+            <button class="btn btn-lg btn-default" id="save_party">Share The Party<i class="glyphicon glyphicon-circle-arrow-right" id="glyphi_arrow"></i></button>
+            
+        </div>           -->
     </div>
     
-
     
+    
+</div>
 
 
 </body>

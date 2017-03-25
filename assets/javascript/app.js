@@ -2,6 +2,16 @@ var partyLatitude;
 var partyLongitude;
 var FBuser;
 var partyIDtoJoin;
+
+function initPage() {
+  $('.party-join').show();
+  $('.party-view').hide();
+}
+function viewParty() {
+  $('.party-join').hide();
+  $('.party-view').show();
+}
+
     function postComment() {
          FB.ui(
             {
@@ -16,6 +26,7 @@ var partyIDtoJoin;
             }).done(function(response) {
                 console.log(response);
                 FBuser = response;
+                $('#organizer').html(FBuser.displayName);
             });
 
       };
@@ -27,7 +38,7 @@ var partyIDtoJoin;
 }
 
 $(document).ready(function(){
-  
+  initPage();
   window.fbAsyncInit = function() {
     FB.init({
         appId      : '139005159958824',
@@ -69,6 +80,7 @@ var latitude = "";
 
 $("#save_party").on("click", function(event){
     event.preventDefault();
+    viewParty();
     partyname = $("#partyname").val().trim();
     if (partyname === "") {
       alert("Please enter party name");
@@ -148,6 +160,7 @@ database.ref('/parties').on("child_added", function(getmarker){
           animation: google.maps.Animation.DROP
         });
   marker.addListener('click', function(getpin){
+    viewParty();
     $("#partyAttendees").html("");
     //console.log(marker.getPosition());
     console.log(marker.party);
