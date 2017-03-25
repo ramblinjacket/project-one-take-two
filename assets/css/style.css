@@ -1,149 +1,176 @@
 
-Style for SignIn
-
-#fblogo{
-	width: auto: 	;
-	height: 25px;
-}
-#login_choose{
-	width: 880px;
-	height: 150px;
-	background-color: white;
-	margin-left: -5px;
-	margin-top: 20px;
-	border: 1px solid #8b9dc3;
-	border-radius: 5px;
-	text-align: center;
-	padding-top: 40px;
-	font-size: 20px;
+Style for SignIn #fblogo {
+   width: auto: ;
+   height: 25px;
 }
 
-
-====================================================
-Style for Location
-
-*{
-	padding:0;
-	margin: 0;
-	box-sizing: border-box;
+#login_choose {
+   width: 880px;
+   height: 150px;
+   background-color: white;
+   margin-left: -5px;
+   margin-top: 20px;
+   border: 1px solid #8b9dc3 ;
+   border-radius: 5px;
+   text-align: center;
+   padding-top: 40px;
+   font-size: 20px;
 }
 
-html, body{
-	background-color: 	#f7f7f7;
-}
-#mynavbar{
-	margin-top: 10px;
-	height: 100px;
-	background-color: #3b5998;
-	font-size: 30px;
-	color: white;
-	text-align: left;
-	padding-left: 15px;
-	border-radius: 5px;
-	display: flex;
-}
-#glyphi{
-	margin-top: 5px;
-	display: flex;
-	margin-top: 30px;
-	margin-left: 650px;	
-}
-#hamburger{
-	display: flex;
-	margin-left: 50px;
-}
-#inputusername{
-	background-color: #ffffff;
-	height:40px;
-	outline: none;
-	display: flex;
-	margin-left: 5px;
-}
-#glyphi_input{
-	display: flex;
-}
-nav{
-	width: 100%;
-}
-#myappname{
-	display: flex;
-	margin-top: 10px;
-	margin-left: 20px;
-
-}
-.mainContent{
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-}
-.mainContent{
-	margin-top: 10px;
-	height: 780px;
-	width: 940px;
-	border: 1px solid #8b9dc3;
-	background-color: #dfe3ee;	
-	border-radius: 5px;
-}
-#map_canvas{
-	width: 880px;
-	height: 400px;
-	background-color: white;
-	margin-left:-5px;
-	margin-right: 0px;
-	border: 3px solid #8b9dc3;
-	border-radius: 5px;
-	 z-index: 0;
-}
-#myimg{
-	width: auto;
-	height: 380px;
-	margin-top: 10px;
-}
-#choose{
-	width: 880px;
-	height: 150px;
-	background-color: white;
-	margin-left: -5px;
-	margin-top: 20px;
-	border: 1px solid #8b9dc3;
-	border-radius: 5px;
-	text-align: center;
-	padding-top: 50px;
-	font-size: 20px;
-}
-#save_party{
-	margin-left: 300px;
-	margin-top: 40px;
-	background-color: #CB2027;
-	color: #ffffff;
-	font-size: 30px;
-
-
-}
-#facebook_button{
-	margin-left: 300px;
-	margin-top: 40px;
-	background-color: #3b5998;
-	color: #f7f7f7;
-	font-size: 30px;
-
-}
-#glyphi_arrow{
-	margin-left: 10px;
-}
-.btn{
-	min-width: 	250px;
-	min-height: 90px;	
+====================================================Style for Location * {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
 }
 
-=============================================
+html,
+body {
+   background-color: #f7f7f7 ;
+}
 
-#personsName{
-	padding-top: 200px;
-	display:flex;
-	width:200px;
+#mynavbar {
+   margin-top: 10px;
+   height: 100px;
+   background-color: #3b5998 ;
+   font-size: 30px;
+   color: white;
+   text-align: left;
+   padding-left: 15px;
+   border-radius: 5px;
+   display: flex;
+   border: 6px outset #ceb444 ;
 }
-#partyAttendees{
-	display: flex;
-	width: 100%;	
+
+#glyphi {
+   margin-top: 5px;
+   display: flex;
+   margin-top: 30px;
+   margin-left: 650px;
 }
+
+.form-group {
+   text-shadow: 2px 2px #ceb444 ;
+   color: white;
+}
+
+#inputusername {
+   background-color: #ffffff ;
+   height: 40px;
+   outline: none;
+   display: flex;
+   margin-left: 5px;
+}
+
+#glyphi_input {
+   display: flex;
+}
+
+nav {
+   width: 100%;
+}
+
+#myappname {
+   display: flex;
+   margin-top: 10px;
+   margin-left: auto;
+   margin-right: auto;
+   text-shadow: 3px 1px #ceb444 ;
+   color: white;
+   text-align: center;
+   letter-spacing: 4px;
+   font-family: "Papyrus", "Verdana", "serif";
+   font-size: 40px;
+   letter-spacing: 10px;
+}
+
+.mainContent {
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+}
+
+.mainContent {
+   margin-top: 10px;
+   height: 875px;
+   width: 1150px;
+   border: 6px inset #ceb444 ;
+   background-color: #3b5998 ;
+   border-radius: 5px;
+   text-shadow: 2px 2px white;
+   color: #ceb444 ;
+}
+
+#map_canvas {
+   width: 880px;
+   height: 400px;
+   background-color: white;
+   margin-left: -5px;
+   margin-right: 0px;
+   border: 3px solid #8b9dc3 ;
+   border-radius: 5px;
+   z-index: 0;
+   border: 6px inset #ceb444 ;
+}
+
+#myimg {
+   width: auto;
+   height: 380px;
+   margin-top: 10px;
+}
+
+#choose {
+   width: 880px;
+   height: 150px;
+   background-color: white;
+   margin-left: -5px;
+   margin-top: 20px;
+   border: 6px inset #ceb444 ;
+   
+   border-radius: 5px;
+   text-align: center;
+   padding-top: 20px;
+   font-size: 20px;
+   text-shadow: 2px 2px #ceb444 ;
+   color: #3b5998 ;
+}
+
+#button_location {
+   margin-left: 300px;
+   margin-top: 40px;
+   background-color: #CB2027 ;
+   color: #ffffff ;
+   font-size: 30px;
+}
+
+#facebook_button {
+   margin-left: 300px;
+   margin-top: 40px;
+   background-color: #3b5998 ;
+   color: #f7f7f7 ;
+   font-size: 30px;
+}
+
+#glyphi_arrow {
+   margin-left: 10px;
+}
+
+.btn {
+   min-width: 250px;
+   min-height: 90px;
+}
+
+#save_party {
+   text-shadow: 2px 2px #ceb444 ;
+   color: #3b5998 ;
+   border: 6px inset #ceb444;
+   width: 100%;
+   margin-top: 20px;
+}
+
+#partyname {
+   
+   margin-top: 20px;
+   /*display: flex;
+   width: 200px;*/
+}
+
