@@ -53,38 +53,40 @@ $("#save_party").on("click", function(event){
     partyname = $("#partyname").val().trim();
     // longitude = $("#partylongitude").val().trim();
     // latitude = $("#partylatitude").val().trim();
+    personsName = $("#attendee").val().trim();
 
     database.ref('/parties').push({
       partyname: partyname,
       longitude: partyLongitude,
-      latitude: partyLatitude
+      latitude: partyLatitude,
+      organizer: personsName
     })
 })
 
 var databaseref;
 
-$("#join_party").on("click", function(event){
-    event.preventDefault();
-    partyID = partyIDtoJoin;
-    personsName = $("#attendee").val().trim();
-    databaseref = "/parties/" + partyID + "/attendees"
-    console.log('Try join party');
-    database.ref(databaseref).push({
-      name: personsName
+// $("#join_party").on("click", function(event){
+//     event.preventDefault();
+//     partyID = partyIDtoJoin;
+//     personsName = $("#attendee").val().trim();
+//     databaseref = "/parties/" + partyID + "/attendees"
+//     console.log('Try join party');
+//     database.ref(databaseref).push({
+//       name: personsName
 
       
-    })
+//     })
 
-    // partyname = $("#partyname").val().trim();
-    // longitude = $("#partylongitude").val().trim();
-    // latitude = $("#partylatitude").val().trim();
+//     // partyname = $("#partyname").val().trim();
+//     // longitude = $("#partylongitude").val().trim();
+//     // latitude = $("#partylatitude").val().trim();
 
-    // database.ref('/parties').push({
-    //   partyname: partyname,
-    //   longitude: longitude,
-    //   latitude: latitude
-    // })
-})
+//     // database.ref('/parties').push({
+//     //   partyname: partyname,
+//     //   longitude: longitude,
+//     //   latitude: latitude
+//     // })
+// })
 
 var location = {};
 
@@ -123,13 +125,24 @@ database.ref('/parties').on("child_added", function(getmarker){
     console.log(marker.party);
     console.log(getpin);
     partyIDtoJoin = marker.key;
+    console.log(partyIDtoJoin);
 
-      database.ref("parties/"+partyIDtoJoin+"/attendees").on("value", function(getattendees){
-  var attendee = getattendees.val();
-  console.log("Attendee equals: ");
-  console.log(attendee);
-  Object.keys(attendee).forEach(function(person) {
+            partyID = partyIDtoJoin;
+            personsName = $("#attendee").val().trim();
+            databaseref = "/parties/" + partyID + "/attendees"
+            console.log('Try join party');
+            database.ref(databaseref).push({
+              name: personsName
+            })
+
+    database.ref("parties/"+partyIDtoJoin+"/attendees").on("value", function(getattendees){
+    var attendee = getattendees.val();
+    console.log("Attendee equals: ");
+    console.log(attendee);
+    Object.keys(attendee).forEach(function(person) {
     console.log(attendee[person].name);
+
+
 
     $("#partyAttendees").append("<tr><td>" + attendee[person].name + "</td></tr>");
 
