@@ -1,0 +1,24 @@
+h1 {
+    color: white;
+    font-size: 42px;
+    font-family: "Papyrus", "Verdana", "serif";
+    text-shadow: 4px 4px #a48903;
+    text-align: center;
+    letter-spacing: 11px;
+    word-spacing: 14px;
+}
+
+.btn {
+    min-width: 250px;
+    min-height: 90px;
+    background-color: #dfe3ee;
+    border: 6px inset black;
+    margin: 0 auto;
+    cursor: pointer;
+    margin-top: 325px;
+    margin-left: 2px;
+}
+
+.btn:hover {
+    background-color: #3b5998;
+}

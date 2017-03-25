@@ -91,7 +91,7 @@ nav {
 
 .mainContent {
    margin-top: 10px;
-   height: 875px;
+   height: auto;
    width: 1150px;
    border: 6px inset #ceb444 ;
    background-color: #3b5998 ;
@@ -101,11 +101,12 @@ nav {
 }
 
 #map_canvas {
-   width: 880px;
+	width: 880px;
    height: 400px;
    background-color: white;
    margin-left: -5px;
    margin-right: 0px;
+   margin-top: 20px;
    border: 3px solid #8b9dc3 ;
    border-radius: 5px;
    z-index: 0;
@@ -168,9 +169,17 @@ nav {
 }
 
 #partyname {
-   
-   margin-top: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 6px inset #ceb444 ;
+    height:40px;
+
    /*display: flex;
    width: 200px;*/
 }
-
+#org_attendees, #organizer{
+	text-align: center;
+	text-shadow: 2px 2px #ceb444 ;
+    color: #3b5998 ;
+    
+}
