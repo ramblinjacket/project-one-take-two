@@ -1,6 +1,6 @@
 var partyLatitude;
 var partyLongitude;
-
+var FBuser;
 var partyIDtoJoin;
     function postComment() {
          FB.ui(
@@ -15,6 +15,7 @@ var partyIDtoJoin;
             method: 'GET'
             }).done(function(response) {
                 console.log(response);
+                FBuser = response;
             });
 
       };
