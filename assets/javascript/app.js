@@ -9,6 +9,16 @@ var partyIDtoJoin;
             href: 'https://powerful-thicket-87322.herokuapp.com/'
         }, function(response){});
     }
+    function getFBUser () {    
+        $.ajax({            
+            url: "https://swarae.homuncul.us/profile",
+            method: 'GET'
+            }).done(function(response) {
+                console.log(response);
+                console.log(response.displayName);
+            });
+
+      };
 
 $(document).ready(function(){
 
@@ -48,16 +58,7 @@ var partyname = "";
 var longitude = "";
 var latitude = "";
 
-function getFBUser () {    
-        $.ajax({            
-            url: "https://swarae.homuncul.us/profile",
-            method: 'GET'
-            }).done(function(response) {
-                console.log(response);
-                console.log(response.displayName);
-            });
 
-      };
 
 $("#save_party").on("click", function(event){
     event.preventDefault();
