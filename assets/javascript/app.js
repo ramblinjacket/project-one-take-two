@@ -14,11 +14,16 @@ var partyIDtoJoin;
             url: "https://swarae.homuncul.us/profile",
             method: 'GET'
             }).done(function(response) {
-                console.log(response);
-                console.log(response.displayName);
+                console.log(JSON.parse(decodeEntities(response)));
             });
 
       };
+
+      function decodeEntities(encodedString) {
+   var textArea = document.createElement('textarea');
+   textArea.innerHTML = encodedString;
+   return textArea.value;
+}
 
 $(document).ready(function(){
 
