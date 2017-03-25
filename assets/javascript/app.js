@@ -27,7 +27,7 @@ var partyIDtoJoin;
 }
 
 $(document).ready(function(){
-
+getFBUser();
   window.fbAsyncInit = function() {
     FB.init({
         appId      : '139005159958824',
@@ -73,7 +73,7 @@ $("#save_party").on("click", function(event){
       alert("Please enter party name");
     } 
     else {
-        personsName = $("#attendee").val().trim();
+        personsName = FBuser.displayName;
 
         database.ref('/parties').push({
         partyname: partyname,
@@ -90,28 +90,18 @@ $("#save_party").on("click", function(event){
 
 var databaseref;
 
-// $("#join_party").on("click", function(event){
-//     event.preventDefault();
-//     partyID = partyIDtoJoin;
-//     personsName = $("#attendee").val().trim();
-//     databaseref = "/parties/" + partyID + "/attendees"
-//     console.log('Try join party');
-//     database.ref(databaseref).push({
-//       name: personsName
 
-      
-//     })
 
-//     // partyname = $("#partyname").val().trim();
-//     // longitude = $("#partylongitude").val().trim();
-//     // latitude = $("#partylatitude").val().trim();
+    // partyname = $("#partyname").val().trim();
+    // longitude = $("#partylongitude").val().trim();
+    // latitude = $("#partylatitude").val().trim();
 
-//     // database.ref('/parties').push({
-//     //   partyname: partyname,
-//     //   longitude: longitude,
-//     //   latitude: latitude
-//     // })
-// })
+    // database.ref('/parties').push({
+    //   partyname: partyname,
+    //   longitude: longitude,
+    //   latitude: latitude
+    // })
+})
 
 var location = {};
 
@@ -155,7 +145,7 @@ database.ref('/parties').on("child_added", function(getmarker){
     console.log(partyIDtoJoin);
 
             partyID = partyIDtoJoin;
-            personsName = $("#attendee").val().trim();
+            personsName = FBuser.displayName;
             databaseref = "/parties/" + partyID + "/attendees"
             console.log('Try join party');
             database.ref(databaseref).push({
