@@ -48,6 +48,17 @@ var partyname = "";
 var longitude = "";
 var latitude = "";
 
+function getFBUser () {    
+        $.ajax({            
+            url: "https://swarae.homuncul.us/profile",
+            method: 'GET'
+            }).done(function(response) {
+                console.log(response);
+                console.log(response.displayName);
+            });
+
+      };
+
 $("#save_party").on("click", function(event){
     event.preventDefault();
     partyname = $("#partyname").val().trim();
