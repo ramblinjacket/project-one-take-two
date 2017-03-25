@@ -10,14 +10,13 @@ var partyIDtoJoin;
         }, function(response){});
     }
     function getFBUser () {    
-      var name;
         $.ajax({            
             url: "https://swarae.homuncul.us/profile",
             method: 'GET'
             }).done(function(response) {
-                name = response.displayName;
+                console.log(response);
             });
-            return name;
+
       };
 
       function decodeEntities(encodedString) {
